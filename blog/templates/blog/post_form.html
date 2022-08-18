@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags%}
+
+{% block content %}
+    <h3>Post</h3>
+    <br>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <br><br>
+        <button class="btn btn-outline-info mb-4" type="submit">Post</button>
+    </form>
+        <a class="btn btn-outline-danger" href="{% url 'homePage' %}">Cancel</a>
+
+{% endblock content %}

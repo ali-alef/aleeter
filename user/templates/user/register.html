@@ -1,0 +1,38 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Sign Up</legend>
+                {{ form.username.label }}
+                <br>
+                <p>&emsp; {{ form.username }}</p>
+                <br>
+
+                {{ form.email.label }}
+                <br>
+                <p>&emsp; {{ form.email }}</p>
+                <br>
+
+                {{ form.password1.label }}
+                <br>
+                <p>&emsp; {{ form.password1 }}</p>
+                <br>
+
+                {{ form.password2.label }}
+                <br>
+                <p>&emsp; {{ form.password2 }}</p>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}
